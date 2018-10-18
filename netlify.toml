@@ -1,7 +1,8 @@
 [build]
   functions = "packages/functions/build"
   publish = "packages/app/build"
-  command = "REACT_APP_ENVIRONMENT=netlify yarn"
+  command = "yarn"
 [build.environment]
   NODE_VERSION = "8.11.2"
   YARN_VERSION = "1.9.4"
+  REACT_APP_ENVIRONMENT = "netlify"
