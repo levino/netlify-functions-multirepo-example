@@ -2,3 +2,6 @@
   functions = "packages/functions/build"
   publish = "packages/app/build"
   command = "yarn"
+[build.environment]
+  NODE_VERSION = "8.11.2"
+  YARN_VERSION = "1.9.4"
