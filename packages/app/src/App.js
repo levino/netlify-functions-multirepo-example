@@ -3,8 +3,13 @@ import request from "superagent";
 import logo from "./logo.svg";
 import "./App.css";
 
+const getFunctionsUrl =
+  process.env.REACT_APP_ENVIRONMENT === "netlify"
+    ? "/.netlify/functions"
+    : "http://localhost:9000";
+
 const getData = () =>
-  request("http://localhost:9000/getData").then(({ text }) => text);
+  request(`${getFunctionsUrl}/getData`).then(({ text }) => text);
 
 class App extends Component {
   constructor(props) {
@@ -15,12 +20,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    getData().then(data => {
-      console.log(data);
+    getData().then(data =>
       this.setState({
         data
-      });
-    });
+      })
+    );
   }
 
   render() {
