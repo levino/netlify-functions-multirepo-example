@@ -1,6 +1,9 @@
 exports.handler = (_, __, callback) => {
   return callback(null, {
     statusCode: 200,
-    body: "Success!"
+    body: "Success!",
+    headers: {
+      "Access-Control-Allow-Origin": "*" // Required for CORS support to work
+    }
   });
 };
